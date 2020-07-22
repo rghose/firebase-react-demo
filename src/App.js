@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   Route,
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Redirect,
 } from "react-router-dom";
@@ -74,15 +74,17 @@ class App extends Component {
         <span className="sr-only">Loading...</span>
       </div>
     ) : (
-        <Router>
+        <HashRouter>
           <Switch>
             <Route exact path="/" component={Home} />
             <PublicRoute
+              exact
               path="/signup"
               authenticated={this.state.authenticated}
               component={Signup}
             />
             <PublicRoute
+              exact
               path="/login"
               authenticated={this.state.authenticated}
               component={Login}
@@ -93,7 +95,7 @@ class App extends Component {
               component={Gold}
             />
           </Switch>
-        </Router>
+        </HashRouter>
       );
   }
 }
