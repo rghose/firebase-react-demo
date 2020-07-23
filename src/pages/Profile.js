@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { auth } from "../services/firebase";
 
-export default class Gold extends Component {
+export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export default class Gold extends Component {
 
   render() {
     return (
-      <div className="home">
+      <div className="container">
         <Header/>
         <section>
           User email:<p>{this.state.user.email}</p>

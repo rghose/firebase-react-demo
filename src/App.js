@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Home from './pages/Home';
-import Gold from './pages/Gold';
+import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import { auth } from './services/firebase';
@@ -36,7 +36,7 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
         authenticated === false ? (
           <Component {...props} />
         ) : (
-            <Redirect to="/gold" />
+            <Redirect to="/profile" />
           )
       }
     />
@@ -90,9 +90,9 @@ class App extends Component {
               component={Login}
             />
             <PrivateRoute
-              path="/gold"
+              path="/profile"
               authenticated={this.state.authenticated}
-              component={Gold}
+              component={Profile}
             />
           </Switch>
         </HashRouter>
